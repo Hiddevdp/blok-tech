@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "camelcase": "^6.3.0",
+    "skills": "^1.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "skills",
+  "version": "1.0.0",
+  "description": "Matching app",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hiddevdp/blok-tech.git"
+  },
+  "keywords": [
+    "server.js"
+  ],
+  "author": "Hidde van der Plaat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hiddevdp/blok-tech/issues"
+  },
+  "homepage": "https://github.com/Hiddevdp/blok-tech#readme"
+}
