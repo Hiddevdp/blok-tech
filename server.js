@@ -1,11 +1,7 @@
 const express = require("express");
-const app = express();
-const port = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+express().get("/", onhome).listen(1900);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+function onhome(req, res) {
+  res.send("<h1>Hello world</h1>\n");
+}
