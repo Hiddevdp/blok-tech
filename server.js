@@ -1,9 +1,8 @@
 const express = require("express");
+const { listen } = require("express/lib/application");
 
 const app = express();
 app.use("/static", express.static("./static"));
-app.use("/css", express.static("./static"));
-app.use("/img", express.static("./static/img"));
 app.set("view engine", "ejs");
 app.use(express.json());
 
@@ -24,4 +23,6 @@ app.get("/admaken", (req, res) => {
   res.render("pages/admaken");
 });
 
-app.listen(5500);
+const port = process.env.PORT || 5500;
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
