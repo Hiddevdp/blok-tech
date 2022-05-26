@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const { listen } = require("express/lib/application");
 
 const app = express();
