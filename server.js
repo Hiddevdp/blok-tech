@@ -5,28 +5,6 @@ const slug = require("slug");
 const bodyParser = require("body-parser");
 const { MongoClient } = require("mongodb");
 
-// const ads = [
-//   {
-//     titel: "Bongo",
-//     omschrijving:
-//       "Ik zou graag lesgeven in de kunst van het gitaarspelIk zou graag lesgeven in de kunst van het gitaarspelIk zou graag lesgeven in de kunst van het gitaarspelIk zou graag lesgeven in de kunst van het gitaarspel",
-//     naam: "Shrek",
-//     locatie: "Amsterdam",
-//   },
-//   {
-//     titel: "Elektrische bastriangel",
-//     omschrijving: "Ik ben een eenzame elektrische bastriangelspeler...",
-//     naam: "Jan",
-//     locatie: "Utrecht",
-//   },
-//   {
-//     titel: "Bongo",
-//     omschrijving: "Ik ben een oude bongospeler en ik...",
-//     naam: "Roderick van baelen",
-//     locatie: "Utrecht",
-//   },
-// ];
-
 const app = express();
 app.use("/static", express.static("./static"));
 app.set("view engine", "ejs");
@@ -37,10 +15,13 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.post("/", add);
+
+//    Paginas inladen
 app.get("/", (req, res) => {
   res.render("pages/discover");
 });
 
+//    Voor deze pagina ook de advertenties inladen vanuit DB
 app.get("/muziek", async (req, res) => {
   const query = {};
   const options = { sort: { locatie: 1 } };
@@ -51,7 +32,7 @@ app.get("/muziek", async (req, res) => {
 app.get("/admaken", (req, res) => {
   res.render("pages/admaken");
 });
-
+//   Connection to DB
 async function connectDB() {
   const uri = process.env.DB_URI;
   const client = new MongoClient(uri, {
