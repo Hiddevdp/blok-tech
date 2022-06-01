@@ -17,7 +17,7 @@ app.set("views", "views");
 app.post("/", add);
 
 //    Paginas inladen
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
   res.render("pages/discover");
 });
 
