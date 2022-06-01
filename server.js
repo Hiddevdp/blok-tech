@@ -65,13 +65,6 @@ async function add(req, res) {
   const ads = await db.collection("ads").find(query, options).toArray();
   res.render("pages/muziek", { ads });
 }
-//   Heroku
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "build", "discover.ejs"));
-  });
-}
 
 const port = process.env.PORT || 5500;
 
