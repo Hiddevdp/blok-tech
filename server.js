@@ -17,7 +17,7 @@ app.set("views", "views");
 app.post("/", add);
 
 //    Paginas inladen
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   res.render("pages/discover");
 });
 
@@ -66,10 +66,14 @@ async function add(req, res) {
   res.render("pages/muziek", { ads });
 }
 
+app.use((req, res) => {
+  res.status(404).render("pages/404");
+});
+
 const port = process.env.PORT || 5500;
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  console.log(`Listening on http://localhost:${port}`);
   connectDB().then(() => {
     console.log("connected to Mongo");
   });
