@@ -35,7 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
 app.set("views", "views");
-
+app.post("/", add);
 app.get("/", (req, res) => {
   res.render("pages/discover");
 });
@@ -47,6 +47,20 @@ app.get("/muziek", (req, res) => {
 app.get("/admaken", (req, res) => {
   res.render("pages/admaken");
 });
+
+function add(req, res) {
+  var id = slug(req.body.titel).toLocaleLowerCase();
+
+  ads.push({
+    id: id,
+    titel: req.body.titel,
+    omschrijving: req.body.omschrijving,
+    naam: req.body.naam,
+    locatie: req.body.locatie,
+  });
+
+  res.render("pages/muziek", { ads });
+}
 
 const port = process.env.PORT || 5500;
 
