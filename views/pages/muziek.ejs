@@ -9,34 +9,26 @@
         <main class="muziekpagina">
             <input type="search" placeholder="Zoeken..">
             <section>
-                <section>
-                    <h1>
-                        Gitaarles
-                    </h1>
-                    <p>
-                        gitaarles aangeboden blablablablalba
-                    </p>
-                    <p>
-                        aanbieder: Jimi Hendrix
-                    </p>
-                    <p>
-                        locatie: Amsterdam
-                    </p>
-                </section>
-                <section>
-                    <h1>
-                        Electrische bastriangel les
-                    </h1>
-                    <p>
-                        Hierbij wil ik graag lesgeven...
-                    </p>
-                    <p>
-                        aanbieder: Jan
-                    </p>
-                    <p>
-                        locatie: Utrecht
-                    </p>
-                </section>
+                <p>Er zijn <%= ads.length %> advertenties beschikbaar!</p>
+                <% for ( var index=0; index < ads.length; index++ ) { %>
+                    <section>
+
+                        <h1>
+                            <%= ads[index].titel %>
+                        </h1>
+                        <p>
+                            <%= ads[index].omschrijving %>
+                        </p>
+                        <p>
+                            <%= ads[index].naam %>
+                        </p>
+                        <p>
+                            <%= ads[index].locatie %>
+                        </p>
+
+                    </section>
+                    <% } %>
+
             </section>
 
         </main>
