@@ -1,9 +1,10 @@
 # blok-tech
 
-Ik ben Hidde van der Plaat, 2de jaars cmd student.
+Ik ben Hidde van der Plaat, 2de jaars cmd student en dit is mijn Matching Applicatie:
 
-mijn idee is een matching applicatie te bouwen voor mensen die iets willen leren van of aan iemand anders.
-De feature die ik ga bouwen is het toevoegen van een advertentie om jezelf aan te bieden als leraar.
+![Logo](https://github.com/Hiddevdp/blok-tech/blob/main/static/media/logoblack.png)
+
+Een app om skills uit te wisselen in de vorm van een matching app. Als je graag les wilt geven in een bepaalde skill maak je een account aan en een advertentie. Zo kan iemand die dit van jou wilt leren je vinden.
 
 # instalatie
 
