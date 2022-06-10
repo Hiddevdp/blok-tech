@@ -47,6 +47,7 @@ async function connectDB() {
   }
 }
 
+// Maak een array van het formulier
 async function add(req, res) {
   var id = slug(req.body.titel).toLocaleLowerCase();
 
@@ -66,10 +67,12 @@ async function add(req, res) {
   res.render("pages/muziek", { ads });
 }
 
+// 404 pagina route
 app.use((req, res) => {
   res.status(404).render("pages/404");
 });
 
+// Heroku Port en anders 5500
 const port = process.env.PORT || 5500;
 
 app.listen(port, () => {
