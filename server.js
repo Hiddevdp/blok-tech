@@ -4,6 +4,16 @@ const { listen } = require("express/lib/application");
 const slug = require("slug");
 const bodyParser = require("body-parser");
 const { MongoClient } = require("mongodb");
+const { Navigator } = require("node-navigator");
+const navigator = new Navigator();
+const NodeGeocoder = require("node-geocoder");
+
+const options = {
+  provider: "google",
+  httpAdapter: "https",
+  apiKey: process.env.API_KEY,
+  formatter: "json",
+};
 
 const app = express();
 app.use(express.static("static"));
@@ -50,7 +60,7 @@ async function connectDB() {
 // Maak een array van het formulier
 async function add(req, res) {
   var id = slug(req.body.titel).toLocaleLowerCase();
-
+  getlocation();
   let ad = {
     id: id,
     titel: req.body.titel,
@@ -66,6 +76,26 @@ async function add(req, res) {
   const ads = await db.collection("ads").find(query, options).toArray();
   res.render("pages/muziek", { ads });
 }
+
+function getlocation() {
+  if (navigator.geolocation)
+    //get latitude en longitude met Geolocation API
+    navigator.geolocation.getCurrentPosition(function (position) {
+      //gebruik NodeGeocoder package om lat en lon om te zetten naar locatie
+      const geocoder = NodeGeocoder(options);
+      geocoder.reverse(
+        {
+          lat: position.latitude,
+          lon: position.longitude,
+        },
+        (err, result) => {
+          console.log(result);
+        }
+      );
+    });
+  else console.log("Geolocation is not supported");
+}
+getlocation();
 
 // 404 pagina route
 app.use((req, res) => {
