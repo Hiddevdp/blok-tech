@@ -8,7 +8,7 @@ Ik ben Hidde van der Plaat, 2de jaars cmd student en dit is de repo van mijn app
 
 Mijn concept van het project is een app genaamd "Skills", dit is een platform skills uit te wisselen in de vorm van een matching app. Je kunt de app gebruiken als je les wilt geven of als je iets wilt leren. Als je graag les wilt geven in een bepaalde skill maak je een account aan en een advertentie. Zo kan iemand die dit van jou wilt leren je vinden en kun je in de chat de details bespreken.
 
-## instalatie
+## installeren
 
 Om het project te draaien kan je naar mijn Heroku website gaan:
 https://skills-1.herokuapp.com
