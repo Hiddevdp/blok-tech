@@ -10,6 +10,9 @@
             <input type="search" placeholder="Zoeken..">
             <section>
                 <p>Er zijn <%= ads.length %> advertenties beschikbaar!</p>
+                <div id='map'></div>
+
+
 
                 <% for ( var index=0; index < ads.length; index++ ) { %>
 
@@ -37,6 +40,9 @@
         <footer>
             <%- include('../partials/nav')%>
         </footer>
+
     </body>
+
+
 
     </html>

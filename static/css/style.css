@@ -11,6 +11,7 @@ header {
   top: 0;
   text-align: center;
   position: fixed;
+  z-index: 10;
 }
 
 main {
@@ -78,6 +79,26 @@ nav {
 }
 
 /* Muziekpagina */
+
+/* Map */
+#map {
+  width: 400px;
+  height: 400px;
+  margin: 10px;
+  border: 2px solid darkblue;
+  border-radius: 20px;
+}
+
+.marker {
+  background-image: url("media/mapbox-icon.png");
+  background-color: blue;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* -map */
 
 .muziekpagina > section > section {
   margin: 10px;

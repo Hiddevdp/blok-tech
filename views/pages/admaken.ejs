@@ -7,15 +7,17 @@
             <%- include('../partials/header')%>
         </header>
         <main class="admaken">
-            <h1>Nieuwe advertentie</h1>
-            <form action=/ method=post>
-                <input name=titel type="text" placeholder="Titel..">
-                <textarea name=omschrijving placeholder="Omschrijving.."></textarea>
-                <input name=naam type="text" placeholder="Jouw naam..">
-                <input name=locatie type="text" placeholder="Locatie..">
-                <input name=plaatsen type="submit" value="Plaatsen">
-            </form>
+            <h1>
 
+            </h1>
+            <form action=/ method=post>
+
+                <input name=titel type="text" placeholder="Titel.." required>
+                <textarea name=omschrijving placeholder="Omschrijving.." required></textarea>
+                <input name=naam type="text" placeholder="Jouw naam.." required>
+                <input name=locatie type="text" placeholder="Locatie.." value="<%= city %> " required>
+                <input name=plaatsen type="submit" value="Plaatsen" required>
+            </form>
         </main>
         <footer>
             <%- include('../partials/nav')%>

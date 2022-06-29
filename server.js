@@ -38,8 +38,15 @@ app.get("/muziek", async (req, res) => {
   res.render("pages/muziek", { ads });
 });
 
+//export ads voor mapbox
+app.get("/ads", async (req, res) => {
+  const ads = await db.collection("ads").find(query, options).toArray();
+  res.json(ads);
+});
+
 app.get("/admaken", (req, res) => {
-  res.render("pages/admaken");
+  const city = getlocation();
+  res.render("pages/admaken", { city: city });
 });
 
 //   Connection to DB
@@ -60,7 +67,6 @@ async function connectDB() {
 // Maak een array van het formulier
 async function add(req, res) {
   var id = slug(req.body.titel).toLocaleLowerCase();
-  getlocation();
   let ad = {
     id: id,
     titel: req.body.titel,
@@ -78,7 +84,8 @@ async function add(req, res) {
 }
 
 function getlocation() {
-  if (navigator.geolocation)
+  let city;
+  if (navigator.geolocation) {
     //get latitude en longitude met Geolocation API
     navigator.geolocation.getCurrentPosition(function (position) {
       //gebruik NodeGeocoder package om lat en lon om te zetten naar locatie
@@ -89,13 +96,14 @@ function getlocation() {
           lon: position.longitude,
         },
         (err, result) => {
-          console.log(result);
+          city = result[0].city;
         }
       );
     });
-  else console.log("Geolocation is not supported");
+    return city;
+  } else console.log("Geolocation is not supported");
 }
-getlocation();
+console.log(getlocation());
 
 // 404 pagina route
 app.use((req, res) => {
