@@ -82,9 +82,8 @@ async function add(req, res) {
   const ads = await db.collection("ads").find(query, options).toArray();
   res.render("pages/muziek", { ads });
 }
-
+let city;
 function getlocation() {
-  let city;
   if (navigator.geolocation) {
     //get latitude en longitude met Geolocation API
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -103,7 +102,8 @@ function getlocation() {
     return city;
   } else console.log("Geolocation is not supported");
 }
-console.log(getlocation());
+getlocation();
+console.log(city);
 
 // 404 pagina route
 app.use((req, res) => {
