@@ -82,6 +82,7 @@ async function add(req, res) {
   const ads = await db.collection("ads").find(query, options).toArray();
   res.render("pages/muziek", { ads });
 }
+
 let city;
 function getlocation() {
   if (navigator.geolocation) {
@@ -102,13 +103,6 @@ function getlocation() {
     return city;
   } else console.log("Geolocation is not supported");
 }
-getlocation();
-console.log(city);
-
-// 404 pagina route
-app.use((req, res) => {
-  res.status(404).render("pages/404");
-});
 
 // Heroku Port en anders 5500
 const port = process.env.PORT || 5500;

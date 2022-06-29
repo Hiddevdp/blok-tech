@@ -88,16 +88,6 @@ nav {
   border: 2px solid darkblue;
   border-radius: 20px;
 }
-
-.marker {
-  background-image: url("media/mapbox-icon.png");
-  background-color: blue;
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-}
 /* -map */
 
 .muziekpagina > section > section {
@@ -131,11 +121,15 @@ textarea {
   font-size: 1.5;
 }
 
-.admaken input:nth-of-type(4) {
+.admaken button {
+  margin-top: 30px;
   background-color: orange;
   border: none;
   color: white;
+  font-size: 1.5em;
   width: 200px;
+  height: 70px;
+  border-radius: 30px;
 }
 
 /* 404 pagina */
